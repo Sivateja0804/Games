@@ -15,9 +15,9 @@ def instructions():
 
 if __name__ == "__main__":
     board=lg.get_grid()
-    print_board(board)
     instructions()
     while True:
+        print_board(board)
         print("Enter Your Command :")
         ins=input()
         if ins=="w":
