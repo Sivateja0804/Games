@@ -30,6 +30,7 @@ if __name__ == "__main__":
             board=lg.move_right(board)
         else:
             print("Please enter the correct command")
+            continue
         status=lg.check_game_status(board)
         if status=="GAME NOT OVER":
             board=lg.generate_random_2(board)
