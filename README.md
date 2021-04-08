@@ -6,7 +6,7 @@ The Goal of this project is to implement 3 Games: Tic Tac Toe, 2048.<br>
 **2048:** we can play a single player 2048 game and you can also see a demo like how to play the game.<br>
 
 
-**Development in progress:**
+**Development in progress:**<br>
 **Code Developed:**<br>
 1) Getting the optimal move for the Tic Tac Toe agent is done. 
 2) 2048 demo game algorithm is done
