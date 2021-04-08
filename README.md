@@ -7,11 +7,11 @@ The Goal of this project is to implement 3 Games: Tic Tac Toe, 2048.<br>
 
 
 **Development in progress:**
-**Code Developed:**
+**Code Developed:**<br>
 1) Getting the optimal move for the Tic Tac Toe agent is done. 
 2) 2048 demo game algorithm is done
-3) playing the 2048 algorithm is also done.
-**ToDo items:**
+3) playing the 2048 algorithm is also done.<br>
+**ToDo items:**<br>
 1)need to create UI for 2048 algorithm
 2)Need to develop algorithmic code for tic tac toe single player and multi player game.
 3)Need to develop UI for the Tic Tac Toe Agent
