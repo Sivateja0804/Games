@@ -7,14 +7,21 @@ def get_grid():
     generate_random_2(board)
     return board
 
+def check_zero(board):
+    for i in range(4):
+        for j in range(4):
+            if board[i][j]==0:
+                return True
+    return False
+
 def generate_random_2(board):
     r=random.randint(0,3)
     c=random.randint(0,3)
-
-    while board[r][c]!=0:
-        r = random.randint(0, 3)
-        c = random.randint(0, 3)
-    board[r][c]=2
+    if check_zero(board):
+        while board[r][c]!=0:
+            r = random.randint(0, 3)
+            c = random.randint(0, 3)
+        board[r][c]=2
     return board
 
 def compress(board):
@@ -84,6 +91,11 @@ def move_down(board):
 def check_game_status(board):
     for i in range(4):
         for j in range(4):
+            if board[i][j]==2048:
+                return "GAME WON"
+
+    for i in range(4):
+        for j in range(4):
             if board[i][j]==0:
                 return "GAME NOT OVER"
 
@@ -94,10 +106,5 @@ def check_game_status(board):
                     return "GAME NOT OVER"
                 if board[j][i]==board[j+1][i]:
                     return "GAME NOT OVER"
-
-    for i in range(4):
-        for j in range(4):
-            if board[i][j]==2048:
-                return "GAME WON"
 
     return "LOST"

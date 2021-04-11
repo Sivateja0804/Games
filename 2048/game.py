@@ -28,7 +28,7 @@ def play_game(board,ins):
     return board,""
 
 
-def main():
+def start():
     board=lg.get_grid()
     instructions()
     while True:
@@ -45,4 +45,3 @@ def main():
             print(status)
             break
 
-#main()
