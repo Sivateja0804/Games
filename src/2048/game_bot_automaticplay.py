@@ -1,5 +1,5 @@
-import game as m
-import logic_2048 as lg
+from . import game as m
+from . import logic_2048 as lg
 import random,time
 
 d={1:"a",2:"w",3:"d",4:"s"}

@@ -1,4 +1,4 @@
-import logic_2048 as lg
+from . import logic_2048 as lg
 
 def print_board(board):
     print("-------------")
