@@ -2,4 +2,7 @@
 *.xml
 *.iml
 *.idea
-
+*.egg-info
+/build
+/dist
+/Games.egg-info
