@@ -4,21 +4,43 @@ import math
 import time
 
 
+# input is board and returns reward value 10 if won, -10 if lost else 0.
 def calculate_reward(board):
-    # check all elements in the rows are equal
-    for i in range(len(board)):
-        if all(elem == player for elem in board[i]):
-            return 10
-        elif all(elem == opponent for elem in board[i]):
-            return -10
+    row_score = check_row_score(board)
+    if row_score: return row_score
 
+    column_score = check_column_score(board)
+    if column_score: return column_score
+
+    diagonal_score = check_diagonal_score(board)
+    if diagonal_score: return diagonal_score
+
+    return 0
+
+
+# check all elements in the rows are equal if player won 10, lost -10
+def check_row_score(board):
+    for i in range(len(board)):
+        if all(cell == player for cell in board[i]):
+            return 10
+        elif all(cell == opponent for cell in board[i]):
+            return -10
+    return None
+
+
+# check all elements in the columns are equal if player won 10, lost -10
+def check_column_score(board):
     # check all elements in the columns are equal
     for i in range(len(board[0])):
         if board[0][i] == board[1][i] == board[2][i] == player:
             return 10
         elif board[0][i] == board[1][i] == board[2][i] == opponent:
             return -10
+    return None
 
+
+# check all elements in the diagonal are equal if player won 10, lost -10
+def check_diagonal_score(board):
     # check diagonal elements  in the columns are equal
     if board[0][0] == board[1][1] == board[2][2] == player:
         return 10
@@ -28,10 +50,10 @@ def calculate_reward(board):
         return 10
     if board[0][2] == board[1][1] == board[2][0] == opponent:
         return -10
+    return None
 
-    return 0
 
-
+# check if there are legal moves(atleast one empty space)
 def check_legal_moves(board):
     for i in range(len(board)):
         for j in range(len(board[0])):
@@ -40,6 +62,7 @@ def check_legal_moves(board):
     return False
 
 
+# calculate the best reward for the particular location in the board
 def minmax(board, depth, isMax):
     reward = calculate_reward(board)
 
@@ -71,6 +94,7 @@ def minmax(board, depth, isMax):
         return bestVal
 
 
+# calculate the optimal move of the bot
 def get_next_move(board):
     bestReward = -math.inf
     bestMove = (-1, -1)
@@ -86,6 +110,7 @@ def get_next_move(board):
     return bestMove
 
 
+# get input from terminal
 def get_input():
     try:
         x, y = input()
@@ -100,11 +125,13 @@ def get_input():
     return int(x), int(y)
 
 
+# print board
 def print_board(board):
     for i in range(3):
         print(board[i])
 
 
+# check if player won the game or lost or its continue
 def check_game_status(board):
     score = calculate_reward(board)
     if score == 10:

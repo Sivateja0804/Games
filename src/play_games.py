@@ -1,16 +1,19 @@
 from src.TicTacToe import tic_tac_toe_bot as tic_tac_toe
 from src.MineSweeper import minesweeper as mine_sweeper
-g_2048 = __import__('src.2048.start_play',  fromlist=("src.2048"))
+
+g_2048 = __import__('src.2048.start_play', fromlist=("src.2048"))
+
 
 def get_input_for_games():
     try:
-        x=input()
-        if x not in ["1","2"]:
-             print("Please enter the correct command")
-    except :
+        x = input()
+        if x not in ["1", "2"]:
+            print("Please enter the correct command")
+    except:
         print("Please enter the correct command in format 1 or 2")
-        x=get_input_for_games()
+        x = get_input_for_games()
     return x
+
 
 def main():
     print("Welcome to the Games")
@@ -29,5 +32,6 @@ def main():
         print("You have selected 3 and lets Play Mine Sweeper")
         mine_sweeper.start_play()
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     main()
